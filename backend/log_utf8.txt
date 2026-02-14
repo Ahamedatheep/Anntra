@@ -1,0 +1,25 @@
+﻿[dotenv@17.3.1] injecting env (3) from .env -- tip: ≡ƒöÉ encrypt with Dotenvx: https://dotenvx.com
+MongoDB Connected for Seeding
+Database cleared
+Γ£ô Admin created
+Γ£ô NGO created
+Γ£ô Donors created
+Γ£ô Volunteers created with tier classification
+Γ£ô Beneficiaries created
+Γ£ô Food batches created with urgency levels
+Γ£ô Impact metrics initialized
+
+≡ƒÄë Database seeded successfully!
+
+≡ƒôï Login Credentials:
+ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü
+Admin    : admin@anntra.com / admin123
+NGO      : ngo@hope.org / ngo123
+Donor1   : donor1@hotel.com / donor123
+Donor2   : donor2@caterers.com / donor123
+Vol1 (T1): volunteer1@email.com / volunteer123
+Vol2 (T2): volunteer2@email.com / volunteer123
+Vol3 (T3): volunteer3@email.com / volunteer123
+Benef1   : beneficiary1@community.org / beneficiary123
+Benef2   : beneficiary2@shelter.org / beneficiary123
+ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü
