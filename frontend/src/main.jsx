@@ -5,7 +5,7 @@ import './index.css'
 import App from './App.jsx'
 
 // Set default base URL for Axios
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'https://anntra.onrender.com/';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
