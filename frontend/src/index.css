@@ -410,14 +410,389 @@ body {
     justify-content: center;
     padding: 1rem;
   }
+
+  .logout-btn {
+    justify-content: center;
+  }
+
+  .mobile-close-btn {
+    display: none;
+  }
+
+  /* Tablet grid overrides */
+  .admin-dashboard > div:nth-child(2),
+  .admin-analytics > div:nth-child(2),
+  .volunteer-stats > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  .admin-analytics > div:last-child {
+    grid-template-columns: 1fr 1fr !important;
+  }
 }
 
+/* ============ MOBILE RESPONSIVE ============ */
 @media (max-width: 768px) {
+
+  /* --- Layout & Sidebar --- */
   .dashboard-layout {
     grid-template-columns: 1fr;
   }
 
   .sidebar {
+    display: flex;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.sidebar-open {
+    left: 0;
+  }
+
+  .sidebar h3,
+  .sidebar .role-badge,
+  .sidebar nav span,
+  .logout-btn span {
+    display: unset;
+  }
+
+  .sidebar nav a {
+    justify-content: flex-start;
+    padding: 0.75rem 1rem;
+  }
+
+  .logout-btn {
+    justify-content: flex-start;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .mobile-close-btn {
+    display: flex !important;
+    background: none;
+    border: none;
+    color: var(--gray-300);
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .hamburger-btn {
+    display: flex !important;
+  }
+
+  /* --- Top Bar --- */
+  .top-bar {
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .top-bar h1 {
+    font-size: 1rem;
+  }
+
+  .header-subtitle {
     display: none;
   }
+
+  .top-bar-actions {
+    gap: 0.75rem !important;
+  }
+
+  .user-info {
+    display: none;
+  }
+
+  /* --- Container --- */
+  .container {
+    padding: 1rem;
+  }
+
+  /* --- Auth Pages --- */
+  .auth-card {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+    max-width: 100% !important;
+  }
+
+  .auth-title {
+    font-size: 1.25rem;
+  }
+
+  /* Register form 2-col → 1-col */
+  .auth-card form > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- Dashboard Grids → single column --- */
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- All page-level 2+ col grids → 1 col --- */
+  .admin-dashboard > div[style*="grid-template-columns"],
+  .admin-analytics > div[style*="grid-template-columns"],
+  .donor-dashboard > div[style*="grid-template-columns"],
+  .donor-impact > div[style*="grid-template-columns"],
+  .new-donation > div[style*="grid-template-columns"],
+  .ngo-dashboard > div[style*="grid-template-columns"],
+  .ngo-management > div[style*="grid-template-columns"],
+  .volunteer-dashboard > div[style*="grid-template-columns"],
+  .volunteer-stats > div[style*="grid-template-columns"],
+  .volunteer-history > div[style*="grid-template-columns"],
+  .beneficiary-dashboard > div[style*="grid-template-columns"],
+  .beneficiary-requests > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Nested 2-col grids inside cards → 1 col */
+  .card > div[style*="grid-template-columns"],
+  .card form > div[style*="grid-template-columns"],
+  .card form > div > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stat cards value size */
+  .stat-card .value {
+    font-size: 1.5rem;
+  }
+
+  /* --- Card padding reduction --- */
+  .card {
+    padding: 1rem;
+  }
+
+  .card[style*="padding: 2.5rem"],
+  .card[style*="padding: 2rem"],
+  .card[style*="padding: 3rem"] {
+    padding: 1.25rem !important;
+  }
+
+  /* --- Page headers → stack on mobile --- */
+  .admin-analytics > div:first-child,
+  .donor-dashboard > div:first-child,
+  .ngo-beneficiaries > div:first-child,
+  .ngo-volunteers > div:first-child,
+  .ngo-management > div:first-child,
+  .volunteer-history > div:first-child,
+  .volunteer-stats > div:first-child,
+  .beneficiary-requests > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  .admin-analytics > div:first-child h2,
+  .ngo-volunteers > div:first-child h2,
+  .ngo-management > div:first-child h2,
+  .volunteer-history > div:first-child h2,
+  .volunteer-stats > div:first-child h2,
+  .beneficiary-requests > div:first-child h2 {
+    font-size: 1.25rem !important;
+  }
+
+  /* --- Donation / History list items → stack --- */
+  .donor-dashboard .card > div > div[style*="grid-template-columns: minmax"],
+  .volunteer-history .card > div > div[style*="grid-template-columns"],
+  .beneficiary-requests .card > div > div[style*="grid-template-columns"],
+  .beneficiary-dashboard .card > div > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* NGO Dashboard monitoring grid */
+  .ngo-dashboard .card div[style*="grid-template-columns: 80px"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .ngo-dashboard .card div[style*="grid-template-columns: 80px"][style*="padding: 0.5rem"] {
+    display: none !important;
+  }
+
+  /* --- Tables → horizontal scroll with minimum width --- */
+  table {
+    min-width: 600px;
+  }
+
+  div[style*="overflowX: 'auto'"],
+  div[style*="overflow-x: auto"] {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* --- Volunteer dashboard task panel --- */
+  .volunteer-dashboard > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  .volunteer-dashboard .card[style*="maxHeight"] {
+    max-height: none !important;
+  }
+
+  /* Map height on mobile */
+  .volunteer-dashboard div[style*="height: '350px'"] {
+    height: 250px !important;
+  }
+
+  /* --- NGO header card → stack --- */
+  .ngo-dashboard > .card:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 1.5rem !important;
+    gap: 1rem;
+  }
+
+  .ngo-dashboard > .card:first-child h2 {
+    font-size: 1.25rem !important;
+  }
+
+  .ngo-dashboard > .card:first-child > div:last-child {
+    text-align: left !important;
+  }
+
+  /* --- Donor Impact layout --- */
+  .donor-impact > div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  .donor-impact .card div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- Volunteer stats level badge → wrap --- */
+  .volunteer-stats > div:first-child {
+    flex-wrap: wrap !important;
+  }
+
+  /* --- Button adjustments --- */
+  .btn-primary {
+    font-size: 0.875rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .btn-primary[style*="width: 'auto'"] {
+    width: 100% !important;
+  }
+
+  /* --- Modal responsive --- */
+  div[style*="position: 'fixed'"][style*="inset: 0"] > .card {
+    margin: 1rem;
+    max-width: calc(100% - 2rem) !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* --- Admin deliveries search bar --- */
+  .admin-deliveries .card > div:first-child {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: flex-start !important;
+  }
+
+  .admin-deliveries .card > div:first-child > div:last-child {
+    width: 100%;
+  }
+
+  /* --- NGO Beneficiaries search bar --- */
+  .ngo-beneficiaries .card > div:first-child {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  /* --- Font size adjustments for headings --- */
+  h2[style*="font-size: 1.75rem"],
+  h2[style*="fontSize: '1.75rem'"],
+  h2[style*="font-size: 2rem"],
+  h2[style*="fontSize: '2rem'"] {
+    font-size: 1.25rem !important;
+  }
+
+  /* --- Flex → wrap for action groups --- */
+  div[style*="display: 'flex'"][style*="gap: '1rem'"] {
+    flex-wrap: wrap;
+  }
+}
+
+/* ============ SMALL MOBILE ============ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .auth-card {
+    padding: 1.25rem;
+  }
+
+  .top-bar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .card {
+    border-radius: var(--radius-md);
+  }
+
+  .stat-card .value {
+    font-size: 1.25rem;
+  }
+
+  /* Full-width buttons */
+  button[style*="width: 'auto'"] {
+    width: 100% !important;
+  }
+
+  /* Stack the bottom stats in volunteer history */
+  .volunteer-history > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============ COMMON RESPONSIVE UTILITIES ============ */
+
+/* Hamburger - hidden on desktop */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gray-900);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.mobile-close-btn {
+  display: none;
+}
+
+/* Top bar actions */
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-info {
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+/* Table row hover */
+.table-row-hover:hover {
+  background: var(--gray-50);
+}
+
+.history-row:hover {
+  background: var(--gray-50);
 }
